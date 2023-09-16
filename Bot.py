@@ -13,27 +13,27 @@ Bot = commands.Bot(command_prefix="/s ", intents=intents)
 
 @Bot.event
 async def on_ready():
-    print(f"{Bot.user} Ready!")
+    print(f"{Bot.user} ready!")
 @Bot.event
 async def on_member_join(member):
-    channel = discord.utils.get(member.guild.text_channels, name="genel")
-    await channel.send(f"{member} Geri bas ulen !")
+    channel = discord.utils.get(member.guild.text_channels, name="general")
+    await channel.send(f"{member} has joined us!")
 async def on_member_remove(member):
-    channel = discord.utils.get(member.guild.text_channels, name="genel")
-    await channel.send(f"{member} bby git !")
+    channel = discord.utils.get(member.guild.text_channels, name="general")
+    await channel.send(f"{member} leaved us :(")
 
 @Bot.command()
 async def clear(ctx, amount = 10):
     await ctx.channel.purge(limit=amount)
 
 @Bot.command()
-async def adamAs(msg):
-    await msg.send("Asıldın")
+async def hangme(msg):
+    await msg.send("You're hanged!")
 @Bot.command()
 async def a(msg):
-    await msg.send("Ayıp")
+    await msg.send("test")
 
-@Bot.command(aliases=["game","oyun"])
+@Bot.command(aliases=["game"])
 async def haeydra(ctx, *args):
     if "zar" in args:
         await ctx.send(game.roll_dice())
@@ -42,10 +42,10 @@ async def haeydra(ctx, *args):
 
 @Bot.command()
 async def king(msg):
-    await msg.send("My Lord Haeydra ! ")
+    await msg.send("My lord! Haeydra created me!")
 @Bot.command()
-async def bb(msg):
-    await msg.send("Bby :( ! ")
+async def bye(msg):
+    await msg.send("Bye :(")
 
 
 
